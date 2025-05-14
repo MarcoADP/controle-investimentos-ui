@@ -1,25 +1,45 @@
 import React, { useEffect, useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import type { Investment } from '../types/Investment';
-import { fetchInvestments } from '../services/investmentService';
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, LabelList } from 'recharts';
+import { fetchCarteira } from '../services/investmentService';
+import type { CarteiraAtivo } from '../types/Carteira';
 
 const InvestmentChart: React.FC = () => {
-  const [data, setData] = useState<Investment[]>([]);
+  const [data, setData] = useState<CarteiraAtivo[]>([]);
+  const [activeIndex, setActiveIndex] = useState(-1);
 
   useEffect(() => {
-    fetchInvestments().then(setData).catch(console.error);
+    fetchCarteira().then(carteira => setData(carteira.ativos)).catch(console.error);
   }, []);
 
+  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+
+  const onPieEnter = (_, index) => {
+      setActiveIndex(index);
+  };
+
   return (
-    <div className="w-full h-[400px]">
+    <div className="w-full h-[700px]">
+
+      
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" />
-          <YAxis />
-          <Tooltip />
-          <Line type="monotone" dataKey="value" stroke="#8884d8" strokeWidth={2} />
-        </LineChart>
+        <PieChart>
+              <Pie
+                  activeIndex={activeIndex}
+                  data={data}
+                  dataKey="totalAtual"
+                  nameKey="codigo"
+                  outerRadius={250}
+                  fill="green"
+                  onMouseEnter={onPieEnter}
+                  style={{ cursor: 'pointer', outline: 'none', marginLeft: 100 }}
+              >
+                <LabelList dataKey="codigo" position="right" style={{ fontSize: "14px" }} />
+                {data.map((_, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index]} />
+                ))}
+              </Pie>
+              <Tooltip />
+          </PieChart>
       </ResponsiveContainer>
     </div>
   );
