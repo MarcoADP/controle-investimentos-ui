@@ -24,3 +24,24 @@ export interface ValorData {
     data: string;
     valor: number;
 }
+
+export interface CarteiraInformacao {
+    ativos: AtivoInformacao[];
+}
+
+export interface AtivoInformacao {
+    codigo: string;
+    tipo: string;
+    entrada: ValorInformacao;
+    saida: ValorInformacao;
+    atual: ValorInformacao;
+    saldo: number;
+    variacao: number;
+    rentabilidade: number;
+}
+
+export interface ValorInformacao {
+    quantidade: number;
+    valorMedio: number;
+    valorTotal: number;
+}
