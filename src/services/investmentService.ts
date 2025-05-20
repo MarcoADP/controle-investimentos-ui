@@ -22,3 +22,5 @@ export async function fetchCarteiraSimplificada(): Promise<CarteiraInformacao> {
   return response.data;
 }
 
+
+

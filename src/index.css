@@ -50,6 +50,10 @@
   --sidebar-ring: oklch(0.705 0.015 286.067);
 }
 
+.div-app {
+  width: 95vw;
+}
+
 a {
   font-weight: 500;
   color: #646cff;

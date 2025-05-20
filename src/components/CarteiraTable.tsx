@@ -22,10 +22,10 @@ const CarteiraTable: React.FC = () => {
                             <th className="p-2">Código</th>
                             <th className="p-2">Tipo</th>
                             <th className="p-2">Qtd Compra</th>
-                            <th className="p-2">Valor Médio Compra</th>
+                            <th className="p-2">Valor Compra</th>
                             <th className="p-2">Total Compra</th>
                             <th className="p-2">Qtd Atual</th>
-                            <th className="p-2">Valor Médio Atual</th>
+                            <th className="p-2">Valor Atual</th>
                             <th className="p-2">Total Atual</th>
                             <th className="p-2">Saldo</th>
                             <th className="p-2">Variação (%)</th>
