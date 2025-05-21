@@ -58,7 +58,16 @@ export interface ProventoHistoricoCodigo {
     valorPorAno: Map<string, number>
 }
 
-export interface ProventosAnual {
-    ano: number
+export interface ProventosPeriodo {
+    periodo: string
     valor: number
+}
+
+export interface Provento {
+    dataPagamento: string 
+    tipoProvento: string 
+    codigo: string
+    quantidade: number
+    valorTotal: number 
+    valorMedio: number
 }

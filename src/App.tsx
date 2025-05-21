@@ -2,7 +2,8 @@ import InvestmentChart from './components/InvestmentChart';
 import ValorMensal from './components/ValorMensal';
 import CarteiraTable from './components/CarteiraTable';
 import ProventoHistorico from './components/ProventoHistorico';
-import ProventoAnual from './components/ProventoAnual';
+import ProventoGrafico from './components/ProventoGrafico';
+import ProventoTable from './components/ProventoTable';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 
 function App() {
@@ -23,8 +24,10 @@ function App() {
 
         <TabsContent value="proventos">
           <h1 className="text-2xl font-bold mb-8">Proventos recebidos por ano</h1>
-          <ProventoAnual />
-          <h1 className="text-2xl font-bold mb-8">Histórico de Proventos por Ativo</h1>
+          <ProventoGrafico />
+          <h1 className="text-2xl font-bold mb-8 p-10">Lista de Proventos recebidos</h1>
+          <ProventoTable />
+          <h1 className="text-2xl font-bold mb-8 p-10">Histórico de Proventos por Ativo</h1>
           <ProventoHistorico />
         </TabsContent>
 
