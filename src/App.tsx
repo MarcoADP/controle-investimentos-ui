@@ -1,6 +1,7 @@
 import InvestmentChart from './components/InvestmentChart';
 import ValorMensal from './components/ValorMensal';
 import CarteiraTable from './components/CarteiraTable';
+import CarteiraResumo from './components/CarteiraResumo';
 import ProventoHistorico from './components/ProventoHistorico';
 import ProventoGrafico from './components/ProventoGrafico';
 import ProventoTable from './components/ProventoTable';
@@ -10,7 +11,7 @@ function App() {
   return (
     <div className="p-4 div-app content-start md:content-around">
 
-      <Tabs defaultValue="proventos" className="w-full">
+      <Tabs defaultValue="carteira" className="w-full">
         <TabsList className="mb-4">
           <TabsTrigger value="carteira">Carteira</TabsTrigger>
           <TabsTrigger value="proventos" >Proventos</TabsTrigger>
@@ -18,6 +19,8 @@ function App() {
         </TabsList>
 
         <TabsContent value="carteira">
+          <h1 className="text-2xl font-bold mb-8">Resumo</h1>
+          <CarteiraResumo />
           <h1 className="text-2xl font-bold mb-8">Carteira</h1>
           <CarteiraTable />
         </TabsContent>

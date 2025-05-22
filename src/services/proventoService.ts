@@ -1,5 +1,5 @@
 import api from './api';
-import type { ProventosPeriodo, ProventoHistorico, ProventosMensal, Provento } from '../types/Carteira';
+import type { ProventosPeriodo, ProventoHistorico, Provento } from '../types/Carteira';
 
 export async function fetchProventosHistorico(): Promise<ProventoHistorico> {
   const response = await api.get('/dados/provento-historico/5');

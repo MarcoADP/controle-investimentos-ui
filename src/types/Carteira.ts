@@ -5,6 +5,16 @@ export interface Acao {
     setor: string
 }
 
+export interface InvestimentoResumo {
+    valorInvestido: number
+    valorAtual: number
+    proventos: number
+    proventosAno: number
+    saldo: number
+    variacao: number
+    rentabilidade: number
+}
+
 export interface CarteiraAtivo {
     codigo: string
     quantidade: number
