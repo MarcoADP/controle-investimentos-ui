@@ -6,6 +6,7 @@ import ProventoHistorico from './components/ProventoHistorico';
 import ProventoGrafico from './components/ProventoGrafico';
 import ProventoTable from './components/ProventoTable';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
+import EvolucaoPatrimonio from './components/EvolucaoPatrimonio';
 
 function App() {
   return (
@@ -14,13 +15,15 @@ function App() {
       <Tabs defaultValue="carteira" className="w-full">
         <TabsList className="mb-4">
           <TabsTrigger value="carteira">Carteira</TabsTrigger>
-          <TabsTrigger value="proventos" >Proventos</TabsTrigger>
+          <TabsTrigger value="proventos">Proventos</TabsTrigger>
           <TabsTrigger value="graficos">Gráficos</TabsTrigger>
         </TabsList>
 
         <TabsContent value="carteira">
           <h1 className="text-2xl font-bold mb-8">Resumo</h1>
           <CarteiraResumo />
+          <h1 className="text-2xl font-bold mb-8">Evolução do Patrimônio</h1>
+          <EvolucaoPatrimonio />
           <h1 className="text-2xl font-bold mb-8">Carteira</h1>
           <CarteiraTable />
         </TabsContent>

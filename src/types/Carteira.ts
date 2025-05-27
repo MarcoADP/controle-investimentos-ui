@@ -56,6 +56,13 @@ export interface ValorInformacao {
     valorTotal: number
 }
 
+export interface PatrimonioEvolucao {
+    periodo: string
+    valorInvestido: number
+    valor: number
+    saldo: number
+}
+
 export interface ProventoHistorico {
     valorTotal: number
     proventos: ProventoHistoricoCodigo[]
