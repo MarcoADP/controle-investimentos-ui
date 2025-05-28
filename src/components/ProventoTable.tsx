@@ -10,22 +10,20 @@ const ProventoTable: React.FC = () => {
   }, []);
 
 
-const itensPorPagina = 20
+  const itensPorPagina = 20
 
-const [paginaAtual, setPaginaAtual] = useState(1);
-const totalPaginas = Math.ceil(data.length / itensPorPagina);
+  const [paginaAtual, setPaginaAtual] = useState(1);
+  const totalPaginas = Math.ceil(data.length / itensPorPagina);
 
 
-const dadosPaginados = data.slice(
-(paginaAtual - 1) * itensPorPagina,
-paginaAtual * itensPorPagina
-);
+  const dadosPaginados = data.slice(
+  (paginaAtual - 1) * itensPorPagina,
+  paginaAtual * itensPorPagina
+  );
 
-const formatarData = (data: string) =>
-new Date(data).toLocaleDateString('pt-BR');
+  const formatarData = (data: string) => new Date(data).toLocaleDateString('pt-BR');
 
-const formatarReais = (valor: number) =>
-valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const formatarReais = (valor: number) => valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
   return (
     <div className="overflow-x-auto">

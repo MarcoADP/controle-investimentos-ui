@@ -11,8 +11,10 @@ const CarteiraTable: React.FC = () => {
     fetchCarteiraSimplificada().then(carteira => setData(carteira.ativos)).catch(console.error);
   }, []);
 
+  const formatarReais = (valor: number) => valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
   return (
-    <div className="w-full">
+    <div className="overflow-x-auto">
         <Card className="w-full">
             <CardContent>
                 <ScrollArea className="w-full">
@@ -21,15 +23,15 @@ const CarteiraTable: React.FC = () => {
                         <tr>
                             <th className="p-2">Código</th>
                             <th className="p-2">Tipo</th>
-                            <th className="p-2">Qtd Compra</th>
-                            <th className="p-2">Valor Compra</th>
-                            <th className="p-2">Total Compra</th>
-                            <th className="p-2">Qtd Atual</th>
-                            <th className="p-2">Valor Atual</th>
-                            <th className="p-2">Total Atual</th>
-                            <th className="p-2">Saldo</th>
-                            <th className="p-2">Variação (%)</th>
-                            <th className="p-2">Rentabilidade (%)</th>
+                            <th className="p-2 text-right">Qtd Compra</th>
+                            <th className="p-2 text-right">Valor Compra</th>
+                            <th className="p-2 text-right">Total Compra</th>
+                            <th className="p-2 text-right">Qtd Atual</th>
+                            <th className="p-2 text-right">Valor Atual</th>
+                            <th className="p-2 text-right">Total Atual</th>
+                            <th className="p-2 text-right">Saldo</th>
+                            <th className="p-2 text-right">Variação (%)</th>
+                            <th className="p-2 text-right">Rentabilidade (%)</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -37,15 +39,15 @@ const CarteiraTable: React.FC = () => {
                             <tr key={ativo.codigo} className="border-t">
                             <td className="p-2">{ativo.codigo}</td>
                             <td className="p-2">{ativo.tipo}</td>
-                            <td className="p-2">{ativo.entrada.quantidade}</td>
-                            <td className="p-2">R$ {ativo.entrada.valorMedio.toFixed(2)}</td>
-                            <td className="p-2">R$ {ativo.entrada.valorTotal.toFixed(2)}</td>
-                            <td className="p-2">{ativo.atual.quantidade}</td>
-                            <td className="p-2">R$ {ativo.atual.valorMedio.toFixed(2)}</td>
-                            <td className="p-2">R$ {ativo.atual.valorTotal.toFixed(2)}</td>
-                            <td className="p-2">R$ {ativo.saldo.toFixed(2)}</td>
-                            <td className="p-2">{(100 * ativo.variacao).toFixed(2)}%</td>
-                            <td className="p-2">{(100 * ativo.rentabilidade).toFixed(2)}%</td>
+                            <td className="p-2 text-right">{ativo.entrada.quantidade}</td>
+                            <td className="p-2 text-right">{formatarReais(ativo.entrada.valorMedio)}</td>
+                            <td className="p-2 text-right">{formatarReais(ativo.entrada.valorTotal)}</td>
+                            <td className="p-2 text-right">{ativo.atual.quantidade}</td>
+                            <td className="p-2 text-right">{formatarReais(ativo.atual.valorMedio)}</td>
+                            <td className="p-2 text-right">{formatarReais(ativo.atual.valorTotal)}</td>
+                            <td className="p-2 text-right">{formatarReais(ativo.saldo)}</td>
+                            <td className="p-2 text-right">{(100 * ativo.variacao).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</td>
+                            <td className="p-2 text-right">{(100 * ativo.rentabilidade).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</td>
                             </tr>
                         ))}
                         </tbody>
