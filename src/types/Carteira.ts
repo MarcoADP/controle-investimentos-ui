@@ -63,6 +63,12 @@ export interface PatrimonioEvolucao {
     saldo: number
 }
 
+export interface CarteiraProporcao {
+    descricao: string
+    valor: number
+    proporcao: number
+}
+
 export interface ProventoHistorico {
     valorTotal: number
     proventos: ProventoHistoricoCodigo[]

@@ -1,6 +1,6 @@
 import api from './api';
 import type { Investment } from '../types/Investment';
-import type { Carteira, CarteiraInformacao, ValorData, InvestimentoResumo, PatrimonioEvolucao } from '../types/Carteira';
+import type { Carteira, CarteiraInformacao, ValorData, InvestimentoResumo, PatrimonioEvolucao, CarteiraProporcao } from '../types/Carteira';
 
 export async function fetchInvestments(): Promise<Investment[]> {
   const response = await api.get('/setor');
@@ -33,6 +33,11 @@ export async function fetchEvolucaoPatrimonio(meses: number): Promise<Patrimonio
       meses
     }
   });
+  return response.data;
+}
+
+export async function fetchCarteiraProporcao(): Promise<CarteiraProporcao[]> {
+  const response = await api.get('/dados/carteira/proporcao/5');
   return response.data;
 }
 
