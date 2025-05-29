@@ -5,6 +5,7 @@ import CarteiraResumo from './components/CarteiraResumo';
 import ProventoHistorico from './components/ProventoHistorico';
 import ProventoGrafico from './components/ProventoGrafico';
 import ProventoTable from './components/ProventoTable';
+import CarteiraProporcao from './components/CarteiraProporcao';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import EvolucaoPatrimonio from './components/EvolucaoPatrimonio';
 
@@ -22,8 +23,22 @@ function App() {
         <TabsContent value="carteira">
           <h1 className="text-2xl font-bold mb-8">Resumo</h1>
           <CarteiraResumo />
-          <h1 className="text-2xl font-bold mb-8">Evolução do Patrimônio</h1>
-          <EvolucaoPatrimonio />
+          <div className="flex gap-4">
+            <div className="mb-4 flex w-[65%]">
+              <h1 className="text-2xl font-bold mb-8">Evolução do Patrimônio</h1>
+            </div>
+            <div className="mb-4 flex w-[35%]">
+              <h1 className="text-2xl font-bold mb-8">Composição</h1>
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <div className="mb-4 flex w-[65%]">
+              <EvolucaoPatrimonio  />
+            </div>
+            <div className="mb-4 flex w-[35%]">
+              <CarteiraProporcao  />
+            </div>
+          </div>
           <h1 className="text-2xl font-bold mb-8">Carteira</h1>
           <CarteiraTable />
         </TabsContent>

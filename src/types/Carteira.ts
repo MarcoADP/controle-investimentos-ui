@@ -63,7 +63,7 @@ export interface PatrimonioEvolucao {
     saldo: number
 }
 
-export interface CarteiraProporcao {
+export interface AtivoProporcao {
     descricao: string
     valor: number
     proporcao: number
